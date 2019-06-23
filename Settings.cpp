@@ -138,7 +138,6 @@ bool Settings::jumpToLoader(const char * arg)
         return false;
     } else {
         //loader was found
-        Chip_TIMER_Disable(LPC_TIMER32_0);
 
         char* argPtr = reinterpret_cast<char*>(0x20000000);
         if(arg)
@@ -148,7 +147,8 @@ bool Settings::jumpToLoader(const char * arg)
 
         //to do check if we should update the loader
         // disable sound interrupt before jumping to loader
-
+        #define TIMER_32_0_IRQn 18
+        NVIC_DisableIRQ((IRQn_Type)TIMER_32_0_IRQn);
         start_application(*(bootinfo+2)); //never returns
 
     }

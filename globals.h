@@ -1,5 +1,5 @@
 #pragma once
-#define VERSION "v0.1.0"
+#define VERSION "v0.1.1"
 #define GITHUB_LINK "github.com/bl-ackrain/xploritto"
 
 #define POKITTO_LIBRARY_VERSION "25-05-2019"
